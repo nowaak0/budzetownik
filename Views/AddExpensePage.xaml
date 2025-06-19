@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Budzetownik.ViewModels"
+             x:Class="Budzetownik.Views.AddExpensePage"
+             x:DataType="viewModels:AddExpenseViewModel"
+             BackgroundColor="#FAFAFA"
+             Title="Dodaj wydatek">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="22">
+
+            <Label
+                Text="Dodaj wydatek"
+                FontSize="32"
+                FontAttributes="Bold"
+                FontFamily="Rubik"
+                TextColor="#4A148C"
+                HorizontalOptions="Center" />
+
+            <Entry 
+                Placeholder="Opis" 
+                Text="{Binding Description}" 
+                FontSize="18"
+                FontFamily="Rubik"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="50"
+                Margin="0,5"
+                />
+
+            <Entry 
+                Placeholder="Kwota" 
+                Keyboard="Numeric" 
+                Text="{Binding Amount}"
+                FontSize="18"
+                FontFamily="Rubik"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="50"
+                Margin="0,5"/>
+
+            <Picker 
+                Title="Kategoria"
+                ItemsSource="{Binding Categories}" 
+                ItemDisplayBinding="{Binding Name}" 
+                SelectedItem="{Binding SelectedCategory}"
+                FontSize="18"
+                FontFamily="Rubik"
+                TextColor="Black"
+                BackgroundColor="White"
+                HeightRequest="55"
+                Margin="0,5,0,20"
+             />
+
+            <Button 
+                Text="📷 Wybierz zdjęcie" 
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60"
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Command="{Binding PickImageCommand}" 
+                Margin="0,20,0,0" />    
+
+
+            <Image 
+                Source="{Binding SelectedImage}" 
+                HeightRequest="200"
+                Aspect="AspectFit"
+                Margin="0,10" />
+
+            <Button 
+                Text="💾 Zapisz"
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60"
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Command="{Binding SaveCommand}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

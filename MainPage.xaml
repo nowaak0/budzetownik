@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budzetownik.MainPage"
+             BackgroundColor="#FAFAFA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="22" VerticalOptions="Center">
+
+
+            <Image
+                x:Name="LogoImage"
+                Source="logo.png" 
+                HeightRequest="250"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                />
+
+            <Label
+                Text="Budżetownik"
+                FontSize="42"
+                FontFamily="Rubik"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#4A148C" />
+
+            <Button 
+                x:Name="BtnDodajWydatek"
+                Text="➕ Dodaj wydatek"
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60" 
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Margin="1"/>
+
+            <Button 
+                x:Name="BtnDodajKategorie"
+                Text="📂 Dodaj kategorię"
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60" 
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Margin="1"/>
+
+            <Button 
+                x:Name="BtnWyswietlWydatki"
+                Text="📊 Wyświetl wydatki"
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60" 
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Margin="1"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+

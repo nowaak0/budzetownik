@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Budzetownik.Views.ViewExpensesPage"
+             Title="Twoje wydatki"
+             BackgroundColor="#FAFAFA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="18">
+
+            <Label Text="📊 Lista wydatków"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   FontFamily="Rubik"
+                   TextColor="#4A148C"
+                   HorizontalOptions="Center" />
+
+            <CollectionView x:Name="GroupedCollectionView"
+                IsGrouped="True"
+                ItemsSource="{Binding GroupedExpenses}"
+                SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="16" />
+                </CollectionView.ItemsLayout>
+
+                <!-- Group Header -->
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Frame
+                            BackgroundColor="#E1BEE7"
+                            CornerRadius="12"
+                            Padding="12"
+                            Margin="0,12,0,4"
+                            HasShadow="False"
+                            BorderColor="#CE93D8"
+                            HorizontalOptions="FillAndExpand">
+                            <Label
+                                Text="{Binding Name}"
+                                FontAttributes="Bold"
+                                FontFamily="Rubik"
+                                FontSize="18"
+                                TextColor="#4A148C" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+
+                <!-- Expense Items -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Padding="16"
+                            Margin="8,0"
+                            CornerRadius="14"
+                            HasShadow="True"
+                            BackgroundColor="White"
+                            BorderColor="#E1BEE7">
+
+                            <VerticalStackLayout Spacing="6">
+                                <Label 
+                                    Text="{Binding Description}" 
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    FontFamily="Rubik"
+                                    TextColor="#4A148C" />
+
+                                <Label 
+                                    Text="{Binding Amount, StringFormat='Kwota: {0:C}'}" 
+                                    FontSize="16"
+                                    FontFamily="Rubik"
+                                    TextColor="#6A1B9A" />
+
+                                <Label 
+                                    Text="{Binding Date, StringFormat='Data: {0:dd.MM.yyyy}'}" 
+                                    FontSize="14"
+                                    FontFamily="Rubik"
+                                    TextColor="#8E24AA" />
+
+                                <!-- FoundItems -->
+                                <VerticalStackLayout Spacing="4" Margin="0,10,0,0">
+                                    <Label Text="Szczegóły:"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           FontFamily="Rubik"
+                                           TextColor="#4A148C" />
+                                    <CollectionView ItemsSource="{Binding ParsedItems}" SelectionMode="None">
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="4" />
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid ColumnDefinitions="*,Auto" Padding="0,2">
+                                                    <Label 
+                                                        Text="{Binding Name}" 
+                                                        FontFamily="Rubik"
+                                                        FontSize="14"
+                                                        TextColor="#333" 
+                                                        Grid.Column="0" />
+                                                    <Label 
+                                                        Text="{Binding TotalPrice, StringFormat='{0:C}'}"
+                                                        FontFamily="Rubik"
+                                                        FontSize="14"
+                                                        TextColor="#555"
+                                                        Grid.Column="1"
+                                                        HorizontalTextAlignment="End" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

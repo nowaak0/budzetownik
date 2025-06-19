@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Budzetownik.ViewModels"
+             x:Class="Budzetownik.Views.AddCategoryPage"
+             x:DataType="viewModels:AddCategoryViewModel"
+             BackgroundColor="#FAFAFA"
+             Title="Dodaj kategorię">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="22" VerticalOptions="Center">
+
+            <Label
+                Text="🗂️ Dodaj kategorię"
+                FontSize="32"
+                FontFamily="Rubik"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#4A148C" />
+
+            <Entry 
+                Placeholder="Nazwa kategorii"
+                Text="{Binding CategoryName}"
+                FontSize="18"
+                FontFamily="Rubik"
+                BackgroundColor="White"
+                TextColor="Black"
+                HeightRequest="50"
+                Margin="0,10"
+                />
+
+            <Button 
+                Text="💾 Zapisz"
+                FontSize="20"
+                FontFamily="Rubik"
+                CornerRadius="14"
+                HeightRequest="60"
+                BackgroundColor="#7b1fa2"
+                TextColor="White"
+                Command="{Binding SaveCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
