@@ -6,9 +6,7 @@ public partial class ViewExpensesPage : ContentPage
 {
 	public ViewExpensesPage()
 	{
-		InitializeComponent();
-
-        BindingContext = new ViewExpensesViewModel();
+        InitializeComponent();
     }
     private async void GoHome_Clicked(object sender, EventArgs e)
     {
