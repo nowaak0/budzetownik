@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="LightPrimary">#6200EE</Color>
+    <Color x:Key="LightOnPrimary">#FFFFFF</Color>
+    <Color x:Key="LightSecondary">#03DAC6</Color>
+    <Color x:Key="LightOnSecondary">#000000</Color>
+    <Color x:Key="LightBackground">#F5F5F5</Color>
+    <Color x:Key="LightOnBackground">#000000</Color>
+    <Color x:Key="LightSurface">#FFFFFF</Color>
+    <Color x:Key="LightOnSurface">#000000</Color>
+    <Color x:Key="LightError">#B00020</Color>
+    <Color x:Key="LightOnError">#FFFFFF</Color>
+
+    <Color x:Key="DarkPrimary">#BB86FC</Color>
+    <Color x:Key="DarkOnPrimary">#FFFFFF</Color>
+    <Color x:Key="DarkSecondary">#03DAC6</Color>
+    <Color x:Key="DarkOnSecondary">#000000</Color>
+    <Color x:Key="DarkBackground">#121212</Color>
+    <Color x:Key="DarkOnBackground">#FFFFFF</Color>
+    <Color x:Key="DarkSurface">#1E1E1E</Color>
+    <Color x:Key="DarkOnSurface">#FFFFFF</Color>
+    <Color x:Key="DarkError">#CF6679</Color>
+    <Color x:Key="DarkOnError">#000000</Color>
+
+    <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightOnBackground}, Dark={StaticResource DarkOnBackground}}" />
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightOnPrimary}, Dark={StaticResource DarkOnPrimary}}" />
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightOnSurface}, Dark={StaticResource DarkOnSurface}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSurface}, Dark={StaticResource DarkSurface}}" />
+        <Setter Property="PlaceholderColor" Value="#999999" />
+    </Style>
+
+    <Style TargetType="Picker">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightOnSurface}, Dark={StaticResource DarkOnSurface}}" />
+        <Setter Property="TitleColor" Value="#999999" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightSurface}, Dark={StaticResource DarkSurface}}" />
+    </Style>
+
+</ResourceDictionary>

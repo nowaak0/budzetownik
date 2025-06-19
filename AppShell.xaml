@@ -4,13 +4,35 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Budzetownik"
-    xmlns:views="clr-namespace:Budzetownik.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="Budzetownik"
-    Shell.NavBarIsVisible="True">
+    Shell.BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkSurface}}"
+    Shell.TitleColor="{AppThemeBinding Light={StaticResource LightOnPrimary}, Dark={StaticResource DarkOnSurface}}">
+
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="Auto, *, Auto" Margin="10,0" VerticalOptions="Center">
+
+            <Label Grid.Column="0"
+                   Text="Budżetownik"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center" />
+
+            <Grid Grid.Column="2" ColumnDefinitions="Auto, Auto, Auto" ColumnSpacing="5" VerticalOptions="Center">
+                <Label Grid.Column="0" Text="☀️" FontSize="24" VerticalOptions="Center"/>
+                <Switch Grid.Column="1"
+                        x:Name="ThemeSwitch"
+                        VerticalOptions="Center" 
+                        Toggled="ThemeSwitch_Toggled"
+                        OnColor="{AppThemeBinding Light='#9D7DE8', Dark={StaticResource DarkSecondary}}"
+                        ThumbColor="{AppThemeBinding Light={StaticResource LightOnPrimary}, Dark={StaticResource DarkPrimary}}"
+                        />
+                <Label Grid.Column="2" Text="🌙" FontSize="24" VerticalOptions="Center"/>
+            </Grid>
+        </Grid>
+    </Shell.TitleView>
 
     <ShellContent
-        Title="Strona główna"
+        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

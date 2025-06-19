@@ -2,62 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Budzetownik.MainPage"
-             BackgroundColor="#FAFAFA">
+             Title="Budżetownik"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="24" Spacing="22" VerticalOptions="Center">
-
+        <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
 
             <Image
                 x:Name="LogoImage"
                 Source="logo.png" 
-                HeightRequest="250"
-                Aspect="AspectFit"
-                HorizontalOptions="Center"
-                />
+                SemanticProperties.Description="Logo aplikacji Budżetownik"
+                HeightRequest="180"
+                HorizontalOptions="Center" />
 
-            <Label
-                Text="Budżetownik"
-                FontSize="42"
-                FontFamily="Rubik"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                TextColor="#4A148C" />
-
-            <Button 
+            <Button
                 x:Name="BtnDodajWydatek"
-                Text="➕ Dodaj wydatek"
-                FontSize="20"
-                FontFamily="Rubik"
-                CornerRadius="14"
-                HeightRequest="60" 
-                BackgroundColor="#7b1fa2"
-                TextColor="White"
-                Margin="1"/>
+                Text="Dodaj wydatek"
+                FontSize="18"/>
 
-            <Button 
+            <Button
                 x:Name="BtnDodajKategorie"
-                Text="📂 Dodaj kategorię"
-                FontSize="20"
-                FontFamily="Rubik"
-                CornerRadius="14"
-                HeightRequest="60" 
-                BackgroundColor="#7b1fa2"
-                TextColor="White"
-                Margin="1"/>
+                Text="Dodaj kategorię"
+                FontSize="18"/>
 
-            <Button 
+            <Button
                 x:Name="BtnWyswietlWydatki"
-                Text="📊 Wyświetl wydatki"
-                FontSize="20"
-                FontFamily="Rubik"
-                CornerRadius="14"
-                HeightRequest="60" 
-                BackgroundColor="#7b1fa2"
-                TextColor="White"
-                Margin="1"/>
+                Text="Wyświetl wydatki"
+                FontSize="18"/>
+
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
-
